@@ -23,3 +23,17 @@ export const GET_MEDIA_PAGE = gql`
     }
   }
 `;
+
+export const GET_CHARACTER_BY_ID = gql`
+  query ($id: Int!) {
+    Character(id: $id) {
+    
+      name {
+        full
+        native
+      }
+      
+      description
+    }
+  }
+`;

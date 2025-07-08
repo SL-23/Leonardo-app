@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Stack, Input, Text, Box, Skeleton } from "@chakra-ui/react";
+import { Button, Stack, Text, Box, Skeleton } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import InfoForm from "../components/InfoForm";

@@ -24,13 +24,14 @@ export default async function SlugPage({
     <AuthWrapper>
       <Stack alignItems="center">
         <Text as="h1" textStyle="3xl">
-          Page {slug}
+          Information Page {slug}
         </Text>
         <ul className="container">
           {allMedia.map((item) => (
             <div key={item.id}>
               <CharItem
-                name={item.title.romaji}
+                id={item.id}
+                name={item.characters.nodes[0].name.full}
                 imgSrc={item.characters.nodes[0].image.large}
               />
             </div>
