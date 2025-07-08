@@ -1,7 +1,10 @@
 import client from "@/apollo/apolloClient";
 import { GET_MEDIA_PAGE } from "@/apollo/queries";
+import AuthWrapper from "../../components/AuthWrapper";
+import CharItem from "../../components/CharItem";
+import { Stack, Text } from "@chakra-ui/react";
 
-export default async function BlogPostPage({
+export default async function SlugPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -18,13 +21,22 @@ export default async function BlogPostPage({
   allMedia.push(...data.Page.media);
 
   return (
-    <div>
-      <h1>Page {slug}</h1>
-      <ul>
-        {allMedia.map((item) => (
-          <li key={item.id}>{item.title.romaji}</li>
-        ))}
-      </ul>
-    </div>
+    <AuthWrapper>
+      <Stack alignItems="center">
+        <Text as="h1" textStyle="3xl">
+          Page {slug}
+        </Text>
+        <ul className="container">
+          {allMedia.map((item) => (
+            <div key={item.id}>
+              <CharItem
+                name={item.title.romaji}
+                imgSrc={item.characters.nodes[0].image.large}
+              />
+            </div>
+          ))}
+        </ul>
+      </Stack>
+    </AuthWrapper>
   );
 }
