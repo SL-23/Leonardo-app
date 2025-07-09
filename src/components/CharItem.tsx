@@ -5,9 +5,9 @@ import { useLazyQuery } from "@apollo/client";
 import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useState } from "react";
-import Modal from "react-modal";
+import ReactModal from "react-modal";
 
-Modal.setAppElement("#__next");
+ReactModal.setAppElement("#__next");
 
 interface CharItemProps {
   id: number;
@@ -29,8 +29,8 @@ const CharItem = ({ id, name, imgSrc }: CharItemProps) => {
   };
 
   return (
-    <Stack alignItems="center" justifyContent="center">
-      <Box position="relative" width="10rem" aspectRatio={1}>
+    <Stack paddingBottom="3rem" alignItems="center" justifyContent="center">
+      <Box width="10rem" position="relative" aspectRatio={1}>
         <Image
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill
@@ -50,19 +50,7 @@ const CharItem = ({ id, name, imgSrc }: CharItemProps) => {
       >
         More
       </Button>
-      <Modal
-        style={{
-          content: {
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-          },
-        }}
-        isOpen={open}
-      >
+      <ReactModal preventScroll shouldCloseOnOverlayClick isOpen={open}>
         {loading ? (
           <Text textStyle="3xl">Loading</Text>
         ) : error ? (
@@ -75,8 +63,20 @@ const CharItem = ({ id, name, imgSrc }: CharItemProps) => {
         ) : (
           <Text textStyle="3xl">No data found</Text>
         )}
-        <Button onClick={() => setOpen(false)}>Close</Button>
-      </Modal>
+        <Button
+          onClick={() => {
+            const overlay = document.getElementsByClassName(
+              "ReactModal__Overlay"
+            );
+            for (const el of overlay) {
+              el.classList.add("ReactModal__Body--open");
+            }
+            setOpen(false);
+          }}
+        >
+          Close
+        </Button>
+      </ReactModal>
     </Stack>
   );
 };

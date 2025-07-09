@@ -8,7 +8,7 @@ const Home = () => {
   const router = useRouter();
   return (
     <AuthWrapper>
-      <Center padding="15rem">
+      <Center padding="5rem">
         <Stack gap="10">
           <Button
             onClick={() => {
@@ -18,17 +18,18 @@ const Home = () => {
             Update info
           </Button>
           <Text>Select a page</Text>
-          <nav>
-            <Flex gap={10}>
+          <nav aria-labelledby="pagination">
+            <Flex as="ul" gap={10}>
               {pages.map((i) => (
-                <Button
-                  onClick={() => {
-                    router.push(`${i}`);
-                  }}
-                  key={i}
-                >
-                  {i}
-                </Button>
+                <li key={i}>
+                  <Button
+                    onClick={() => {
+                      router.push(`${i}`);
+                    }}
+                  >
+                    {i}
+                  </Button>
+                </li>
               ))}
             </Flex>
           </nav>

@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning>
+      <body className="ReactModal__Overlay" suppressHydrationWarning>
         <div id="__next"></div>
         <ChakraProvider value={system}>
           <Box
@@ -34,11 +34,19 @@ export default function RootLayout({
             flexDir="column"
             justifyContent="center"
             alignItems="center"
-            paddingTop="10rem"
+            paddingTop="1rem"
           >
             {children}
           </Box>
-          <Box position="absolute" bottom={0} right={0}>
+          <Box
+            textWrap="wrap"
+            backgroundColor="ThreeDShadow"
+            color="#FFFFFF"
+            position="fixed"
+            bottom={0}
+            right={0}
+            width="100%"
+          >
             <footer>
               <Text textStyle="lg"> challenge version v3.5 - by SL 2025</Text>
             </footer>

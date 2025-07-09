@@ -23,7 +23,7 @@ export default async function SlugPage({
   return (
     <AuthWrapper>
       <Stack alignItems="center">
-        <Text as="h1" textStyle="3xl">
+        <Text as="h1" textStyle="2xl">
           Information Page {slug}
         </Text>
         <ul className="container">

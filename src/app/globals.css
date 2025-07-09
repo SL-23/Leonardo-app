@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  overflow-x: hidden;
+  width: 100%;
+
 }
 
 @theme inline {
@@ -18,25 +21,25 @@
     --foreground: #ededed;
   }
 }
-
 .container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
-
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .container {
-    flex-direction: row;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
-tsx
-Copy
-Edit
+
+.ReactModal__Body--open {
+  position: fixed;
+}
 
 body {
+  width: 100%;
   background: var(--background);
   color: var(--foreground);
-  height: 100%;
   display: flex;
   flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
