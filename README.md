@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Production
+
+Access a demo of this app at: https://leonardo-app-6ewz.vercel.app/.
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+# use latest node version
+nvm use node
+# install dependencies
+npm install
+# run the app
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-
-
-- [] Please document your code appropriately.
+- [x] Please document your code appropriately.
 - [x] Set up a NextJS project using the App router with TypeScript.
 - [x] Ensure your project is set up with git.
 - [x] Use the ChakraUI component library for UI elements and styling.
@@ -56,3 +45,9 @@ and job title information.
 - [x] When an item is clicked on the “Information Page”, it must open a modal that
 displays the information about that item.
 - [x] Deploy on Vercel free tier.
+
+
+## Dev considerations
+- A11y features: pagination, modal, title, focus etc.
+- Responsiveness: breakpoint used `48rem`. The app should be responsive.
+- TODO: unit test, snapshot test
